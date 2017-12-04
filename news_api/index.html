@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Search for the latest news by the keyword">
+	<meta name="description" content="Search top news headlines with keywords and filters">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Daily News Search</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:300,400" rel="stylesheet">
 	<link href="custom.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <h1>Top headlines</h1>
         <div id="search">
             <form id="search-form">
                 <label for="keyword"></label>
@@ -54,7 +55,7 @@
             </form>
             <div id="error"></div>
         </div>
-        <ul id="result"></ul>
+        <ul id="articles"></ul>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

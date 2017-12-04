@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif; 
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;    
+    color: #2F546F;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#articles li {
+    width: 50%;
+    float: left;
+    position: relative;
+    list-style: none;
+}
+
+#search {
+    width: 70%;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto 40px auto;
+}
+article {
+    background-size: cover;
+    background-position: center center;
+    min-height: 475px;
+    max-width: 100%;
+    height: auto;
+}
+
+.article__content {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    right: 5%;
+}
+
+.article__info {
+    padding: 1px 8px;
+    color: #fffefe;
+    font-size: 15px;
+    display: table;
+    font-weight: 600;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    font-family: 'Roboto';
+}
+
+.article__source {
+    display: inline-block;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.article__title {
+    width: 100%;
+    font-size: 40px;
+    line-height: 40px;
+    padding: 2px 8px 0px;
+    margin: 10px 0px 25px 0px;
+    color: #FFF;
+    font-family: 'Roboto Condensed', sans-serif;    
+    font-weight: 600;
+    overflow: hidden;
+    text-transform: uppercase;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.article__link {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.article__description {
+    line-height: 24px;
+    color: #FFF;
+    margin-bottom: 25px;
+    overflow: hidden;
+    width: 100%;
+    min-height: 95px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    font-family: 'Roboto';
+    opacity: 0;
+    visibility: hidden;
+}
+
+.article__more {
+    text-decoration: none;
+    font-family: 'Roboto Condensed';
+    display: table;
+    clear: both;
+    background: #F83A3A;
+    color: #FFF;
+    font-size: 23px;
+    position: relative;
+    font-weight: 400;
+    padding: 7px 15px 7px 15px;
+    border-radius: 6px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+}
+
+.article__more:hover {
+    padding-left: 30px;
+}
+
+.article__more:hover,
+.article__more:focus {
+    background: #FFF;
+    color: #F83A3A;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.arrow-right {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    position: absolute;
+    top: 0;
+    left: 8px;
+    opacity: 0;
+    width: 10px;
+    height: 10px;
+    margin-top: -10px;
+}
+
+.article__more:hover i,
+.article__more:active i {
+    transition: opacity 0.5s, top 0.5s, left 0.5s;
+    opacity: 1;
+    top: 17px;
+}
+
+.arrow-right:before {
+    content: ">";
+}
+
+article:hover .article__description {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+
+article:hover .article__info {
+    display: table;
+    background: #FFF;
+    color: #F83A3A;
+    padding: 1px 8px;
+    border-radius: 4px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+article:hover .article__title {
+    background: #F83A3A;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+
+article:hover .article__more {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    position: relative;
+}
