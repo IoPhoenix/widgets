@@ -6,8 +6,16 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: 'Roboto Condensed', sans-serif; 
+}
+
+.container {
+    padding: 60px 0 20px 0;
 }
 
 h1 {
@@ -20,20 +28,204 @@ h1 {
     margin-bottom: 20px;
 }
 
+
+#search {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto 40px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+
+.form-control:focus,
+.custom-select:focus {
+    color: #464a4c;
+    background-color: #fff;
+    border-color: #5cb3fd;
+    outline: 0;
+}
+
+.form-control::-webkit-input-placeholder { 
+    font-weight: 400;
+    font-family: 'Roboto';
+    color: rgba(117, 117, 117, 0.76);
+  }
+  ::-moz-placeholder { 
+    font-weight: 400;
+    font-family: 'Roboto';
+    color: rgba(117, 117, 117, 0.76);
+  }
+  .form-control:-ms-input-placeholder {
+    font-weight: 400;
+    font-family: 'Roboto';
+    color: rgba(117, 117, 117, 0.76);
+  }
+  .form-control:-moz-placeholder {
+    font-weight: 400;
+    font-family: 'Roboto';
+    color: rgba(117, 117, 117, 0.76);
+  }
+
+.custom-select {
+    margin: 5px 0;
+    display: inline-block;
+    max-width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.25;
+    color: #464a4c;
+    vertical-align: middle;
+    background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+    -webkit-background-size: 8px 10px;
+    background-size: 8px 10px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.buttons {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    cursor: pointer;
+    font-weight: 400;
+    font-family: 'Roboto';
+    flex: 1;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border: 1px solid rgba(0,0,0,.15);
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.button--primary {
+    background: #F83A3A;
+    color: #FFF;
+}
+
+.button--secondary {
+    color: #F83A3A;
+    border-color: #F83A3A;
+    background: #FFF;
+}
+
+
+.button:nth-child(1) {
+    margin-right: 4px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+button, input, optgroup, select, textarea {
+    font-weight: 400;
+    font-family: 'Roboto';
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+#keyword {
+    transition: border-color 2s;
+}
+
+#error {
+    text-align: left;
+    margin-top: 5px;
+    color: #F83A3A;
+}
+
 #articles li {
     width: 50%;
     float: left;
     position: relative;
     list-style: none;
+    padding: 5px 0;
 }
 
-#search {
-    width: 70%;
-    text-align: center;
-    padding: 20px;
-    margin: 20px auto 40px auto;
+#articles li:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 0;
+    bottom: 5px;
+    left: 0;
+    background-image: linear-gradient(to top,#073956,#131111);
+    opacity: .6; 
 }
-article {
+
+#articles li:nth-child(2n+1) {
+    padding-left: 0px;
+    padding-right: 5px;
+}
+#articles li:nth-child(2n+1):before {
+    left: 0px;
+    right: 5px;
+}
+
+#articles li:nth-child(2n+2) {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#articles li:nth-child(2n+2):before {
+    right: 0px;
+    left: 5px;
+}
+
+
+.article {
+    cursor: pointer;
+    background-color: #D74343;
     background-size: cover;
     background-position: center center;
     min-height: 475px;
@@ -97,7 +289,6 @@ article {
     margin-bottom: 25px;
     overflow: hidden;
     width: 100%;
-    min-height: 95px;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -o-transition: 0.3s;
@@ -174,7 +365,7 @@ article {
     content: ">";
 }
 
-article:hover .article__description {
+.article:hover .article__description {
     opacity: 1;
     visibility: visible;
     -webkit-transition: 0.3s;
@@ -185,12 +376,11 @@ article:hover .article__description {
 }
 
 
-article:hover .article__info {
+.article:hover .article__info {
     display: table;
     background: #FFF;
     color: #F83A3A;
     padding: 1px 8px;
-    border-radius: 4px;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -o-transition: 0.3s;
@@ -198,7 +388,7 @@ article:hover .article__info {
     transition: 0.3s;
 }
 
-article:hover .article__title {
+.article:hover .article__title {
     background: #F83A3A;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -207,7 +397,7 @@ article:hover .article__title {
     transition: 0.3s;
 }
 
-article:hover .article__more {
+.article:hover .article__more {
     opacity: 1;
     visibility: visible;
     -webkit-transition: 0.3s;

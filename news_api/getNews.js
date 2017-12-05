@@ -17,7 +17,11 @@ $(function() {
             language = $('#language option:selected').val();
 
         if (keyword === '' || (/[^\s\w-]/gi).test(keyword) || (/[\d_]/gi).test(keyword)) {
-            error.text('Please enter a valid keyword or phrase!').fadeIn(2000).fadeOut(3000);
+            $('#keyword').css({'border-color' : '#F83A3A'});
+            setTimeout(function() {
+                $('#keyword').css({'border-color': 'rgba(0,0,0,.15)'})
+            }, 1000);
+            error.text('Please enter a valid keyword or phrase!').fadeIn(1000).fadeOut(2000);
             return;
         }
 
@@ -47,7 +51,7 @@ $(function() {
             articles.empty();
 
             if (data['articles'].length === 0) {
-                articles.append('<h2>No results were found. Please try another keyword and/or category.</h2>');
+                articles.append('<h2 class="no-results">No results were found. Please try another keyword and/or category.</h2>');
                 return;
             }
 
@@ -56,20 +60,21 @@ $(function() {
                     description = article['description'],
                     sourceName = article['source']['name'],
                     sourceUrl = article['url'],
-                    imageUrl = article['urlToImage'],
-                    date = article['publishedAt'].slice(0, 10);
+                    imageUrl = article['urlToImage'];
+                let date = article['publishedAt'];
+                date = (date === null ? '' : date.slice(0, 10));
                 
             const result = 
             
             '<li>' + 
-                '<article style="background-image: url(' + imageUrl + ')">' +
+                '<div class="article" style="background-image: url(' + imageUrl + ')">' +
                     '<div class="article__content">' + 
                         '<div class="article__info"><span class="article__source">' + sourceName + ' //</span><span class="article__date">' + date + '</span></div>' + 
                         '<h2 class="article__title"><a href="' + sourceUrl +  '" class="article__link" target="_blank">' + title + '</a></h2>' + 
-                        '<p class="article__description">' + description + '</p>' + 
+                        '<p class="article__description">' + truncateText(description) + '</p>' + 
                         '<a class="article__more" href="' + sourceUrl + '" target="_blank"><i class="arrow-right"></i> More</a>' +
                     '</div>' + 
-                '</article>' + 
+                '</div>' + 
             '</li>';
 
 
@@ -85,5 +90,10 @@ $(function() {
         .always(function() {
             console.log('request completed');
         });
+    }
+
+    function truncateText(text) {
+        if (text.length > 300) return text.slice(0, 300) + '...';
+        else return text;
     }
 });

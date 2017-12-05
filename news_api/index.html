@@ -13,26 +13,28 @@
         <h1>Top headlines</h1>
         <div id="search">
             <form id="search-form">
-                <label for="keyword"></label>
-                <input type="text" id="keyword" name="keyword" placeholder="Enter keyword or phrase">
+                <label class="sr-only" for="keyword">Keyword</label>
+                <input type="text" id="keyword" class="form-control" name="keyword" placeholder="Enter keyword or phrase">
 
-                <label for="category"></label>
-                <select id="category" name="category">
+                <div id="error"></div>
+
+                <label for="category" class="sr-only">Categories</label>
+                <select class="custom-select" id="category">
                     <option value="all" selected>All categories</option>
-                    <option value="business">business</option>                    
-                    <option value="entertainment">entertainment</option>
-                    <option value="gaming">gaming</option>
-                    <option value="politics">politics</option>
-                    <option value="general">general</option>
-                    <option value="science-and-nature">science and nature</option>
-                    <option value="sport">sport</option>
-                    <option value="technology">technology</option>
-                    <option value="health-and-medical">health and medical</option>
-                    <option value="music">music</option>
+                    <option value="business">Business</option>                    
+                    <option value="entertainment">Entertainment</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="politics">Politics</option>
+                    <option value="general">General</option>
+                    <option value="science-and-nature">Science and Nature</option>
+                    <option value="sport">Sport</option>
+                    <option value="technology">Technology</option>
+                    <option value="health-and-medical">Health and Medical</option>
+                    <option value="music">Music</option>
                 </select>
 
-                <label for="language"></label>
-                <select id="language" name="language">
+                <label for="language" class="sr-only">Language</label>
+                <select id="language" class="custom-select">
                     <option value="all" selected>All languages</option>
                     <option value="ar">Arabic</option>
                     <option value="cn">Chinese</option>
@@ -50,15 +52,20 @@
                     <option value="ud">Urdu</option>
                 </select>
 
-                <input type="submit">
-                <input type="reset">
+                <div class="buttons">
+                    <input type="submit" class="button button--primary">
+                    <input type="reset" class="button button--secondary">
+                </div>
             </form>
-            <div id="error"></div>
+           
         </div>
         <ul id="articles"></ul>
-    </div>
+    </div> <!-- /.container -->
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
     <script src="getNews.js"></script>
 </body>
 </html>
