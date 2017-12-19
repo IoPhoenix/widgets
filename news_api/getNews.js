@@ -48,13 +48,16 @@ $(function() {
     function fetchArticles(requestUrl) {
         $.getJSON(requestUrl)
         .done(function(data) {
+            // empty the previous results if any
             articles.empty();
 
+            // display error message if no results found
             if (data['articles'].length === 0) {
                 articles.append('<h2 class="no-results">No results were found. Please try another keyword and/or category.</h2>');
                 return;
             }
 
+            // create li tag for each result and append data
             data['articles'].forEach(article => {
                 const title = article['title'],
                     description = article['description'],
@@ -89,10 +92,16 @@ $(function() {
         })
         .always(function() {
             console.log('request completed');
+            // slowly scroll to results div
+            $('html, body').animate({
+                scrollTop: $("#articles").offset().top
+            }, 1000);
         });
     }
 
+    // shorten description text if any
     function truncateText(text) {
+        if (text === null) return;
         if (text.length > 300) return text.slice(0, 300) + '...';
         else return text;
     }

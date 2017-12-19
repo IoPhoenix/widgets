@@ -10,56 +10,58 @@
 </head>
 <body>
     <div class="container">
-        <h1>Top headlines</h1>
-        <div id="search">
-            <form id="search-form">
-                <label class="sr-only" for="keyword">Keyword</label>
-                <input type="text" id="keyword" class="form-control" name="keyword" placeholder="Enter keyword or phrase">
-
-                <div id="error"></div>
-
-                <label for="category" class="sr-only">Categories</label>
-                <select class="custom-select" id="category">
-                    <option value="all" selected>All categories</option>
-                    <option value="business">Business</option>                    
-                    <option value="entertainment">Entertainment</option>
-                    <option value="gaming">Gaming</option>
-                    <option value="politics">Politics</option>
-                    <option value="general">General</option>
-                    <option value="science-and-nature">Science and Nature</option>
-                    <option value="sport">Sport</option>
-                    <option value="technology">Technology</option>
-                    <option value="health-and-medical">Health and Medical</option>
-                    <option value="music">Music</option>
-                </select>
-
-                <label for="language" class="sr-only">Language</label>
-                <select id="language" class="custom-select">
-                    <option value="all" selected>All languages</option>
-                    <option value="ar">Arabic</option>
-                    <option value="cn">Chinese</option>
-                    <option value="nl">Dutch</option>
-                    <option value="en">English</option>
-                    <option value="fr">French</option>
-                    <option value="de">German</option>
-                    <option value="he">Hebrew</option>
-                    <option value="it">Italian</option>
-                    <option value="no">Norwegian</option>
-                    <option value="pt">Portuguese</option>
-                    <option value="ru">Russian</option>
-                    <option value="es">Spanish</option>
-                    <option value="sv">Swedish</option>
-                    <option value="ud">Urdu</option>
-                </select>
-
-                <div class="buttons">
-                    <input type="submit" class="button button--primary">
-                    <input type="reset" class="button button--secondary">
-                </div>
-            </form>
-           
-        </div>
+        <h1>Daily News Search</h1>
+            <div id="search">
+                <form id="search-form">
+                    <label class="search-label" for="keyword">Search by keyword or phrase</label>
+                    <input type="text" id="keyword" class="form-control" name="keyword" autofocus>
+    
+                    <div id="error"></div>
+    
+                    <label for="category" class="sr-only">Categories</label>
+                    <select class="custom-select" id="category">
+                        <option value="all" selected>All categories</option>
+                        <option value="business">Business</option>                    
+                        <option value="entertainment">Entertainment</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="politics">Politics</option>
+                        <option value="general">General</option>
+                        <option value="science-and-nature">Science and Nature</option>
+                        <option value="sport">Sport</option>
+                        <option value="technology">Technology</option>
+                        <option value="health-and-medical">Health and Medical</option>
+                        <option value="music">Music</option>
+                    </select>
+    
+                    <label for="language" class="sr-only">Language</label>
+                    <select id="language" class="custom-select">
+                        <option value="all" selected>All languages</option>
+                        <option value="ar">Arabic</option>
+                        <option value="cn">Chinese</option>
+                        <option value="nl">Dutch</option>
+                        <option value="en">English</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="he">Hebrew</option>
+                        <option value="it">Italian</option>
+                        <option value="no">Norwegian</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ru">Russian</option>
+                        <option value="es">Spanish</option>
+                        <option value="sv">Swedish</option>
+                        <option value="ud">Urdu</option>
+                    </select>
+    
+                    <div class="buttons">
+                        <input type="submit" class="button button--primary">
+                        <input type="reset" class="button button--secondary">
+                    </div>
+                </form>
+               
+            </div> <!-- / #search -->
         <ul id="articles"></ul>
+
+        <!-- <a id="to-top"><i class="arrow-up"></i></a> -->
     </div> <!-- /.container -->
 
     <script
