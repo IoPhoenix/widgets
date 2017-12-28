@@ -67,15 +67,18 @@ $(function() {
                 let date = article['publishedAt'];
                 date = (date === null ? '' : date.slice(0, 10));
                 
+            // do not show description and button on small screens:
+            const isSmallScreen = $(window).width() < 768;
+            const descriptionAndLink = isSmallScreen ?  '' : ('<p class="article__description">' + truncateText(description) + '</p>' + 
+            '<a class="article__more" href="' + sourceUrl + '" target="_blank"><i class="arrow-right"></i> More</a>');
             const result = 
             
             '<li>' + 
                 '<div class="article" style="background-image: url(' + imageUrl + ')">' +
                     '<div class="article__content">' + 
                         '<div class="article__info"><span class="article__source">' + sourceName + ' //</span><span class="article__date">' + date + '</span></div>' + 
-                        '<h2 class="article__title"><a href="' + sourceUrl +  '" class="article__link" target="_blank">' + title + '</a></h2>' + 
-                        '<p class="article__description">' + truncateText(description) + '</p>' + 
-                        '<a class="article__more" href="' + sourceUrl + '" target="_blank"><i class="arrow-right"></i> More</a>' +
+                        '<h2 class="article__title"><a href="' + sourceUrl +  '" class="article__link" target="_blank">' + title + '</a></h2>'
+                        + descriptionAndLink +
                     '</div>' + 
                 '</div>' + 
             '</li>';
