@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .background {
@@ -27,52 +27,79 @@ body {
   z-index: 2;
 }
 
-.col {
-  z-index: 3;
-}
-
-.col--with-left-padding {
-  padding-left: 5%;
-}
-
 h1 {
+  flex: 1;
   font-size: 35px;
   line-height: 45px;
   font-weight: 800;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   color: #fff;
 }
 
 p {
+  flex: 2;
   font-size: 15px;
   line-height: 30px;
   color: #fff;
 }
 
 .col {
-  border: 2px solid green;
+  z-index: 3;
 }
 
-div.col-4 {
-  flex: 40%;
+.col.col-4 {
+  flex: 33.33%;
   text-align: right;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: center;
 }
 
-div.col-8 {
-  flex: 60%;
+.col.col-8 {
+  flex: 66.7%;
 }
 
-.form-input {
+.col--with-left-padding {
+  padding-left: 5%;
+}
+
+form .btn {
+  color: #fff;
+  background-color: #ff3aca;
+  border-color: #ff3aca;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  padding: 16px 23px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -o-border-radius: 200px;
+  box-shadow: none;
+  -ms-transition: opacity 0.45s cubic-bezier(0.25, 1, 0.33, 1), transform 0.45s cubic-bezier(0.25, 1, 0.33, 1), border-color 0.45s cubic-bezier(0.25, 1, 0.33, 1), color 0.45s cubic-bezier(0.25, 1, 0.33, 1), background-color 0.45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow 0.45s cubic-bezier(0.25, 1, 0.33, 1);
+  -webkit-transition: opacity 0.45s cubic-bezier(0.25, 1, 0.33, 1), transform 0.45s cubic-bezier(0.25, 1, 0.33, 1), border-color 0.45s cubic-bezier(0.25, 1, 0.33, 1), color 0.45s cubic-bezier(0.25, 1, 0.33, 1), background-color 0.45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow 0.45s cubic-bezier(0.25, 1, 0.33, 1);
+  transition: opacity 0.45s cubic-bezier(0.25, 1, 0.33, 1), transform 0.45s cubic-bezier(0.25, 1, 0.33, 1), border-color 0.45s cubic-bezier(0.25, 1, 0.33, 1), color 0.45s cubic-bezier(0.25, 1, 0.33, 1), background-color 0.45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow 0.45s cubic-bezier(0.25, 1, 0.33, 1);
+}
+
+form .btn--with-t-margin {
+  margin-top: 20px;
+}
+
+form .btn:hover {
+  opacity: .8;
+}
+
+.form-field {
   position: relative;
   padding-top: 35px;
   box-sizing: content-box;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   display: inline-block;
-  width: 100%;
+  width: 80%;
 }
 
-.form-input label {
+.form-field label {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -82,8 +109,8 @@ div.col-8 {
   display: inline-block;
 }
 
-.form-input label:before {
-  content: ' ';
+.form-field label:before {
+  content: '';
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   position: absolute;
   bottom: 0;
@@ -93,7 +120,7 @@ div.col-8 {
   height: 3px;
 }
 
-.form-input label span.form-text {
+.form-field label span.label-text {
   position: absolute;
   top: 50%;
   left: 0;
@@ -104,9 +131,39 @@ div.col-8 {
   color: #acacac;
 }
 
-input[type="text"] {
+.form-field label span.label-text-inner {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: bold;
+  -webkit-transition: all 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98);
+  transition: all 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98);
+  display: inline-block;
+  -webkit-animation: label-text-out 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+  animation: label-text-out 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+}
+
+.form-field.textarea label span.label-text {
+  top: 35px;
+  transform: none;
+  -webkit-transform: none;
+}
+
+.form-field.textarea textarea {
+  min-height: 45px;
+  resize: none;
+  position: relative;
+  line-height: 22px;
+}
+
+.form-field.active label span.label-text-inner {
+  -webkit-animation: label-text-in 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+  animation: label-text-in 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+}
+
+input[type="text"],
+textarea {
   width: 100%;
   background: transparent;
+  box-shadow: none;
   -webkit-box-shadow: none;
   border: none;
   position: relative;
@@ -116,6 +173,103 @@ input[type="text"] {
   color: #fff;
 }
 
-textarea {
-  background: transparent;
+input[type="text"]:focus,
+textarea:focus {
+  outline-color: #ff3aca;
+}
+
+.form-field.has-text label .label-text-inner {
+  -webkit-animation: label-text-in 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+  animation: label-text-in 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+}
+
+.form-field.no-text label .label-text-inner {
+  -webkit-animation: label-text-out 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+  animation: label-text-out 0.25s cubic-bezier(0.39, 0.71, 0.56, 0.98) forwards;
+}
+
+@-webkit-keyframes label-text-in {
+  50% {
+    opacity: 0;
+    -webkit-transform: translateX(15px) translateY(0px);
+    font-size: 14px;
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translateX(-10px) translateY(-36px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) translateY(-36px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+@keyframes label-text-in {
+  50% {
+    opacity: 0;
+    transform: translateX(15px) translateY(0px);
+    font-size: 14px;
+  }
+  51% {
+    opacity: 0;
+    transform: translateX(-10px) translateY(-36px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px) translateY(-36px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+@-webkit-keyframes label-text-out {
+  0% {
+    -webkit-transform: translateY(-36px) translateX(0px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateX(-10px) translateY(-36px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translateX(15px) translateY(0px);
+    font-size: 14px;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) translateY(0px);
+  }
+}
+
+@keyframes label-text-out {
+  0% {
+    transform: translateY(-27px) translateX(0px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-10px) translateY(-27px);
+    font-size: 12px;
+    line-height: 12px;
+  }
+  51% {
+    opacity: 0;
+    transform: translateX(15px) translateY(0px);
+    font-size: 14px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px) translateY(0px);
+  }
 }

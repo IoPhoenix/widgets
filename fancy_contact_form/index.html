@@ -22,28 +22,38 @@
 
                 <div class="col col-8 col--with-left-padding">
                     <form>
-                        <div class="form-input">
+                        <div class="form-field">
                             <label>
-                                <span class="form-text">
-                                    <span class="form-text-inner"> Your Name *<br></span>
+                                <span class="label-text">
+                                    <span class="label-text-inner"> Your Name<br></span>
                                 </span>
                             </label>
                             <input type="text" name="" id="name">
                         </div>
                         
-                        <div class="form-input">
+                        <div class="form-field">
                             <label>
-                                <span class="form-text">
-                                    <span class="form-text-inner"> Your Email *<br></span>
+                                <span class="label-text">
+                                    <span class="label-text-inner"> Your Email<br></span>
                                 </span>
                             </label>
                             <input type="text" name="" id="email"><br>
                         </div>
-                        <textarea name="" id="message" cols="30" rows="10"></textarea><br>
-                        <button>Send Message</button>
+
+                        <div class="form-field textarea">
+                            <label>
+                                <span class="label-text">
+                                    <span class="label-text-inner"> Your Message<br></span>
+                                </span>
+                            </label>
+                            <textarea name="" id="message" cols="40" rows="5"></textarea>
+                        </div>
+                        <button class="btn btn--with-t-margin">Send Message</button>
                     </form>
                 </div>
         </div>
     </main>
+
+    <script src="form.js"></script>
 </body>
 </html>
