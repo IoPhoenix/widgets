@@ -21,34 +21,37 @@
                 </div>
 
                 <div class="col col-8 col--with-left-padding">
-                    <form>
+                    <form novalidate>
                         <div class="form-field">
-                            <label>
+                            <label for="name">
                                 <span class="label-text">
                                     <span class="label-text-inner"> Your Name<br></span>
                                 </span>
                             </label>
-                            <input type="text" name="" id="name">
+                            <input type="text" name="name" id="name" min="1" max="20">
+                            <div class="error" id="name-error" aria-live="polite"></div>
                         </div>
                         
                         <div class="form-field">
-                            <label>
+                            <label for="useremail">
                                 <span class="label-text">
                                     <span class="label-text-inner"> Your Email<br></span>
                                 </span>
                             </label>
-                            <input type="text" name="" id="email"><br>
+                            <input type="email" name="email" id="useremail">
+                            <div class="error" id="email-error" aria-live="polite"></div>
                         </div>
 
                         <div class="form-field textarea">
-                            <label>
+                            <label for="usermessage">
                                 <span class="label-text">
                                     <span class="label-text-inner"> Your Message<br></span>
                                 </span>
                             </label>
-                            <textarea name="" id="message" cols="40" rows="5"></textarea>
+                            <textarea name="message" id="message" cols="40" rows="5"></textarea>
+                            <div class="error" id="message-error" aria-live="polite"></div>
                         </div>
-                        <button class="btn btn--with-t-margin">Send Message</button>
+                        <input type="submit" class="btn btn--with-t-margin" value="Send Message">
                     </form>
                 </div>
         </div>

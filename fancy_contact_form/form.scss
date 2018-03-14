@@ -165,6 +165,7 @@ form {
 }
 
 input[type="text"],
+input[type="email"],
 textarea {
     width: 100%;
     background: transparent;
@@ -175,6 +176,7 @@ textarea {
     margin: 0;
     font-size: 14px;
     padding: 15px 0;
+    padding-left: 3px;
     color: #fff;
     &:focus {
         outline-color: $pink; 
@@ -183,12 +185,12 @@ textarea {
 
 
 // leave label text at the top of input when input if filled with text
-.form-field.has-text label .label-text-inner {
+.form-field.filled label .label-text-inner {
     -webkit-animation: label-text-in 0.25s cubic-bezier(.39,.71,.56,.98) forwards;
     animation: label-text-in 0.25s cubic-bezier(.39,.71,.56,.98) forwards;
 }
 
-.form-field.no-text label .label-text-inner {
+.form-field.empty label .label-text-inner {
     -webkit-animation: label-text-out 0.25s cubic-bezier(.39,.71,.56,.98) forwards;
     animation: label-text-out 0.25s cubic-bezier(.39,.71,.56,.98) forwards;
 }
@@ -219,3 +221,22 @@ textarea {
     51% { opacity:0; transform: translateX(15px) translateY(0px); font-size:14px}
     100% { opacity:1; transform: translateX(0px) translateY(0px)}
 }
+
+// Error messages
+.error {
+    position: absolute;
+    bottom: -15px;
+    display: none;
+    width: 100%;
+    font-size: 80%;
+    color: crimson;
+    text-align: center;
+  }
+  
+  .error.active {
+    display: block;
+  }
+
+  input:invalid{
+    background-color: crimson;
+  }
