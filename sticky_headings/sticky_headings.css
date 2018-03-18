@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #038BDA;
+    font-family: 'PT Serif', serif;
+    line-height: 35px;
+  }
+  
+  h1 {
+      text-align: center;
+      font-family: 'PT Serif', serif;
+      color: #fff;
+      font-weight: normal;
+  }
+
+  dl {
+      width: 40%;
+      margin: 0 auto;
+      border-left: 1px solid #778491;
+      border-right: 1px solid #778491;
+  }
+
+  dl > div {
+    background: #FFF;
+  }
+  
+  dt {
+    text-decoration: underline;
+    font-size: 28px;
+    background: #09233E;
+    border-bottom: 1px solid #989EA4;
+    border-top: 1px solid #717D85;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 0 5px 15px;
+    text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+  }
+  
+  dd {
+    padding: 3px 0 5px 15px;
+    background-color: #e8e8e80a;
+    font-weight: normal;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  dd + dd {
+    border-top: 1px solid #e8e8e882;
+  }
