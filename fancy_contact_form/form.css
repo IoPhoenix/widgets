@@ -1,12 +1,14 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif, sans-serif;
 }
 
 .background {
-  position: relative;
-  padding: 10%;
   display: flex;
   display: -webkit-flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  position: relative;
+  padding: 6%;
   background-image: url(author.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -27,8 +29,15 @@ body {
   z-index: 2;
 }
 
+@media (min-width: 768px) {
+  .background {
+    padding: 10%;
+    flex-direction: row;
+    -ms-flex-direction: row;
+  }
+}
+
 h1 {
-  flex: 1;
   font-size: 35px;
   line-height: 45px;
   font-weight: 800;
@@ -37,38 +46,36 @@ h1 {
 }
 
 p {
-  flex: 2;
   font-size: 15px;
   line-height: 30px;
   color: #fff;
 }
 
 .col {
+  border: 1px solid n;
   z-index: 3;
+  padding-left: 2%;
 }
 
-.col.col-4 {
-  flex: 33.33%;
-  text-align: right;
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  justify-content: center;
+@media (min-width: 768px) {
+  .col.col-4 {
+    text-align: right;
+    flex: 33.33%;
+  }
 }
 
-.col.col-8 {
-  flex: 66.7%;
-}
-
-.col--with-left-padding {
-  padding-left: 5%;
+@media (min-width: 768px) {
+  .col.col-8 {
+    flex: 66.7%;
+    padding-left: 5%;
+  }
 }
 
 form .btn {
   color: #fff;
   background-color: #ff3aca;
   border-color: #ff3aca;
+  width: 100%;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   padding: 16px 23px;
@@ -87,6 +94,12 @@ form .btn--with-t-margin {
 
 form .btn:hover {
   opacity: .8;
+}
+
+@media (min-width: 480px) {
+  form .btn {
+    width: inherit;
+  }
 }
 
 .form-field {

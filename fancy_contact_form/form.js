@@ -9,7 +9,7 @@ Array.from(inputs).forEach(i => {
     i.addEventListener('blur', () => {
         parent.classList.remove('active');
 
-        // select error field for current inout
+        // select error field for current input
         const error = document.getElementById(`${i.name}-error`);
 
         // leave label text at the top of input if input was filled by user
@@ -21,7 +21,7 @@ Array.from(inputs).forEach(i => {
             parent.classList.add('empty');
         }
 
-        const nameRegex = new RegExp(/^(\w{1,20}[\s\-]{0,1}\w{0,20})\s*(\w{0,20}[\s\-']{0,1}\w{0,20})$/, 'gi');
+        const nameRegex = new RegExp(/^[a-zA-Z]{1,20}[\s\-]{0,1}[a-zA-Z]{1,20}\s{0,1}[a-zA-Z]{0,20}[\s\-]{0,1}[a-zA-Z]{0,20}$/, 'gi');
         if (nameRegex.test(nameInput.value) === false) {
             nameError.className = "error active";
             nameError.innerHTML = "Please provide correct name";

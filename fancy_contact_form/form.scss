@@ -2,23 +2,47 @@ $fira: 'Fira Sans', sans-serif;
 $roboto: 'Roboto', sans-serif;
 $pink: #ff3aca;
 
+// Media queries
+$smartphone-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+
+@mixin smartphone {
+    @media (min-width: #{$smartphone-width}) {
+      @content;
+    }
+  }
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
 
 body {
-    font-family: $roboto;
+    font-family: $roboto, sans-serif;
 }
 
 .background {
-    position: relative;
-    padding: 10%;
     display: flex;
     display: -webkit-flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    position: relative;
+    padding: 6%;
     background-image: url(author.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
-}
-    .background:after {
+    &:after {
         content: ' ';
         position: absolute;
         top: 0;
@@ -30,10 +54,16 @@ body {
         background: linear-gradient(90deg,#0a0a0a 0%,#0a0a0a 100%);
         opacity: 0.85;
         z-index: 2;
+    }
+    @include tablet {
+        padding: 10%;
+        flex-direction: row;
+        -ms-flex-direction: row;
+    }
 }
 
 h1 {
-    flex: 1;
+   // flex: 1;
     font-size: 35px;
     line-height: 45px;
     font-weight: 800;
@@ -42,28 +72,32 @@ h1 {
 }
 
 p {
-    flex: 2;
+    //flex: 2;
     font-size: 15px;
     line-height: 30px;
     color: #fff;
 }
 
 .col {
+    border: 1px solid n;
     z-index: 3;
+    padding-left: 2%;
     &.col-4 {
-        flex: 33.33%;
-        text-align: right;
-        display: flex;
-        display: -webkit-flex;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        justify-content: center;
+        // display: flex;
+        // display: -webkit-flex;
+        // flex-direction: column;
+        // -ms-flex-direction: column;
+        // justify-content: center;
+        @include tablet {
+            text-align: right;
+            flex: 33.33%;
+        }
     }
     &.col-8 {
-        flex: 66.7%;
-    }
-    &--with-left-padding {
-        padding-left: 5%;
+        @include tablet {
+            flex: 66.7%;
+            padding-left: 5%;
+        }
     }
 }
 
@@ -73,6 +107,7 @@ form {
         color: #fff;
         background-color: $pink;
         border-color: $pink;
+        width: 100%;
         cursor: pointer;
         font-family: $roboto;
         padding: 16px 23px;
@@ -88,6 +123,9 @@ form {
         }
         &:hover {
             opacity: .8;
+        }
+        @include smartphone {
+            width: inherit;
         }
     }
 }
@@ -231,8 +269,9 @@ textarea {
     font-size: 80%;
     color: crimson;
     text-align: center;
-  }
+}
   
-  .error.active {
+.error.active {
     display: block;
-  }
+}
+
