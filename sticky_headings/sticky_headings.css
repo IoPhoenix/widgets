@@ -1,32 +1,52 @@
+/* STICKY POSITION: The element is positioned according to the normal flow of the document,
+and then offset relative to its flow root and containing block, including
+table-related elements, based on the values of top, right, bottom, and left.
+The offset does not affect the position of any other elements.
+This value always creates a new stacking context. Note that sticky,
+by specification, will not work inside element with overflow: hidden or auto */
+
+
 * {
     box-sizing: border-box;
-  }
+}
 
-  body {
+body {
     background-color: #038BDA;
     font-family: 'PT Serif', serif;
     line-height: 35px;
-  }
-  
-  h1 {
-      text-align: center;
-      font-family: 'PT Serif', serif;
-      color: #fff;
-      font-weight: normal;
-  }
+}
 
-  dl {
-      width: 40%;
-      margin: 0 auto;
-      border-left: 1px solid #778491;
-      border-right: 1px solid #778491;
-  }
+h1 {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    color: #fff;
+    font-weight: normal;
+}
 
-  dl > div {
+dl {
+    width: 80%;
+    margin: 0 auto;
+    border-left: 1px solid #778491;
+    border-right: 1px solid #778491;
+}
+
+@media only screen and (min-width: 480px) {
+    dl {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    dl {
+        width: 40%;
+    }
+}
+
+dl > div {
     background: #FFF;
-  }
-  
-  dt {
+}
+
+dt {
     text-decoration: underline;
     font-size: 28px;
     background: #09233E;
@@ -40,16 +60,19 @@
     position: -webkit-sticky;
     position: sticky;
     top: -1px;
-  }
-  
-  dd {
+}
+
+dd {
     padding: 3px 0 5px 15px;
     background-color: #e8e8e80a;
     font-weight: normal;
     margin: 0;
     white-space: nowrap;
-  }
-  
-  dd + dd {
+}
+
+dd + dd {
     border-top: 1px solid #e8e8e882;
-  }
+}
+.is-sticky {
+    box-shadow: 0 7px 2px -2px darkgray;
+}
