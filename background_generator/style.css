@@ -25,6 +25,7 @@ h3 {
     padding: 2px 3px;
     background-color: #f7f2f2;
     display: none;
+    margin-top: 2em;
 }
 
 .visible {
@@ -41,4 +42,20 @@ input[type="color"] {
 
 input[type="color"]:not(:last-child) {
     margin-right: 1em;
+}
+
+ button.generate-gradient {
+    background: #151313;
+    font-family: 'Open Sans', Arial, Helvetica Neue, sans-serif;
+    padding: .8em 1.5em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .4s;
+    display: block;
+    margin: 0 auto;
 }
