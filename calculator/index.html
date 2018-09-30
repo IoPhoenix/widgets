@@ -10,21 +10,21 @@
 </head>
 <body>
     <div class="calculator-container">
-        <form id="calcForm">
+        <form id="calculatorForm">
             <div class="form-group">
                 <label for="user-input" class="sr-only">Number input</label>
                 <input type="number" class="form-control" id="user-input" placeholder="0">
             </div>
             <div class="btn-group-vertical position-absolute" aria-label="Vertical button group">
-                <button type="button" class="btn btn-warning" class="operation" data-operation="devide">/</button>
-                <button type="button" class="btn btn-warning" class="operation" data-operation="multiply">*</button>
-                <button type="button" class="btn btn-warning" class="operation" data-operation="substract">-</button>
-                <button type="button" class="btn btn-warning" class="operation" data-operation="add">+</button>
+                <button type="button" class="btn btn-warning operation" data-operation="devide">/</button>
+                <button type="button" class="btn btn-warning operation" data-operation="multiply">*</button>
+                <button type="button" class="btn btn-warning operation" data-operation="substract">-</button>
+                <button type="button" class="btn btn-warning operation" data-operation="add">+</button>
             </div>
             <div class="btn-group-horizontal position-absolute" aria-label="Horizontal button group">
-                <button type="button" class="btn btn-primary" class="operation" data-operation="reset">Reset</button>
-                <button type="button" class="btn btn-primary" class="operation" data-operation="add-float-point">.</button>
-                <button type="button" class="btn btn-warning" class="operation" data-operation="submit">=</button>
+                <button type="button" class="btn btn-primary action" onclick="resetForm()" data-action="resetForm">Reset</button>
+                <button type="button" class="btn btn-primary action" onclick="addFloatingPoint()" data-action="addFloatingPoint">.</button>
+                <button type="button" class="btn btn-warning action" onclick="calculateResult()" data-action="calculateResult">=</button>
             </div>
         </form>
     </div>
