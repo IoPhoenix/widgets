@@ -1,4 +1,4 @@
-$darkBlue: #011936;
+$dark: #011936;
 $lightBlue: #007BFF;
 $yellow: #fac31f;
 
@@ -31,8 +31,8 @@ body {
 
     input {
         height: 180px;
-        background-color: $darkBlue;
-        border-color: $darkBlue;
+        background-color: $dark;
+        border-color: $dark;
         color: white;
         font-size: 90px;
         text-align: right;
@@ -44,10 +44,19 @@ body {
         border-radius: 0;
         &-primary {
             background-color: $yellow;
-            color: $darkBlue;
+            color: $dark;
+            &:hover {
+                background-color: #e0a800;
+                border-color: #d39e00;
+            }
         }
         &-secondary {
             background-color: $lightBlue;
+            &:hover {
+                color: #fff;
+                background-color: #0069d9;
+                border-color: #0062cc;
+            }
         }
     }
 
@@ -61,7 +70,7 @@ body {
         top: 20px;
         &>.btn {
             height: 45px;
-            border-color: $darkBlue;
+            border-color: $dark;
             width: 40px;
         }
     }
@@ -74,7 +83,7 @@ body {
         &>.btn {
             height: 40px;
             flex: 1;
-            border-color: $darkBlue;
+            border-color: $dark;
         }
     }
    

@@ -1,3 +1,12 @@
+/*
+    Test cases:
+    -user clicks one of the operations right away
+    -user enters first number, clicks operation
+    -user clicks operation after result is calculated
+    -user resets the form
+    -user tries to devide by 0
+*/
+
 // Variables
 // =====================================================
 

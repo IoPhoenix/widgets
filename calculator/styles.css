@@ -46,8 +46,19 @@ body {
   color: #011936;
 }
 
+.calculator-container .btn-primary:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
 .calculator-container .btn-secondary {
   background-color: #007BFF;
+}
+
+.calculator-container .btn-secondary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 .calculator-container .btn-group-vertical,
