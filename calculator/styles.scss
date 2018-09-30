@@ -1,0 +1,81 @@
+$darkBlue: #011936;
+$lightBlue: #007BFF;
+$yellow: #fac31f;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #FEFDF9 url(wallpaper.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+.calculator-container {
+    padding: 20px 40px 44px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto;
+    min-height: 200px;
+    min-width: 400px;
+    background:#ED254E;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    input {
+        height: 180px;
+        background-color: $darkBlue;
+        border-color: $darkBlue;
+        color: white;
+        font-size: 90px;
+        text-align: right;
+        padding-right: 30px;
+        width: 340px;
+    }
+
+    .btn {
+        border-radius: 0;
+        &-primary {
+            background-color: $yellow;
+            color: $darkBlue;
+        }
+        &-secondary {
+            background-color: $lightBlue;
+        }
+    }
+
+    .btn-group-vertical,
+    .btn-group-horizontal {
+        border: 2px solid;
+        display: flex;
+    }
+    .btn-group-vertical {
+        right: 20px;
+        top: 20px;
+        &>.btn {
+            height: 45px;
+            border-color: $darkBlue;
+            width: 40px;
+        }
+    }
+    .btn-group-horizontal {
+        display: flex;
+        justify-content: stretch;
+        right: 20px;
+        bottom: 20px;
+        width: 360px;
+        &>.btn {
+            height: 40px;
+            flex: 1;
+            border-color: $darkBlue;
+        }
+    }
+   
+}
