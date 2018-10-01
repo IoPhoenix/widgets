@@ -1,4 +1,5 @@
 $dark: #011936;
+$lightGray: #FEFDF9;
 $lightBlue: #007BFF;
 $yellow: #fac31f;
 
@@ -9,7 +10,7 @@ $yellow: #fac31f;
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #FEFDF9 url(wallpaper.jpg) no-repeat;
+    background: $lightGray url(wallpaper.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     min-height: 100vh;
@@ -25,19 +26,26 @@ body {
     min-width: 400px;
     background:#ED254E;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-box-shadow: 1px 2px 12px 0px rgba(50, 50, 50, 0.35);
+    -moz-box-shadow: 1px 2px 12px 0px rgba(50, 50, 50, 0.35);
+    box-shadow: 1px 2px 12px 0px rgba(50, 50, 50, 0.35);
 
     input {
         height: 180px;
         background-color: $dark;
         border-color: $dark;
-        color: white;
+        color: $lightGray;
         font-size: 90px;
         text-align: right;
         padding-right: 30px;
         width: 340px;
+        &:focus {
+            color: $lightGray;
+            background-color: $dark;
+        }
     }
 
     .btn {
