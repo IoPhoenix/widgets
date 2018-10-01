@@ -39,31 +39,39 @@ function updateOperation() {
     operation = this.getAttribute('data-operation');
     console.log('operation: ', operation);
     console.log('user input: ', input.value);
+    console.log('operationWasClicked: ', operationWasClicked);
 
     if (operationWasClicked) {
-        switch (operation) {
-            case 'divide':
-                result = divide(+previousUserInput, +input.value);
-                break;
-            case 'multiply':
-                result = multiply(+previousUserInput, +input.value);
-                break;
-            case 'add':
-                result = add(+previousUserInput, +input.value);
-                break;
-            case 'substract':
-                result = substract(+previousUserInput, +input.value);
-                break;
-        }
+        // perform relevant calulation and update result variable
+        calculate(operation, +previousUserInput, +input.value);
         
+        // show result to the user
         input.value = result;
-        // update user input
+
+        // update user input variable
         previousUserInput = result;
     } else {
         previousUserInput = input.value;
         operationWasClicked = true;
     }
     input.select();
+}
+
+function calculate(operationType, num1, num2) {
+    switch (operationType) {
+        case 'divide':
+            result = divide(num1, num2);
+            break;
+        case 'multiply':
+            result = multiply(num1, num2);
+            break;
+        case 'add':
+            result = add(num1, num2);
+            break;
+        case 'substract':
+            result = substract(num1, num2);
+            break;
+    }
 }
 
 function resetForm() {
@@ -78,7 +86,9 @@ function addFloatingPoint() {
 }
 
 function calculateResult() {
-
+    calculate(operation, +previousUserInput, +input.value);
+    input.value = result;
+    input.select();
 }
 
 function divide(a,b) {
