@@ -22,9 +22,9 @@ const input = form.elements["user-input"];
 const operationButtons = document.querySelectorAll('.operation');
 const [resetBtn, floatingPointBtn, submitBtn] = document.querySelectorAll('.action');
 
-
 // Event Listeners
 // =====================================================
+
 input.addEventListener('input', checkUserInput);
 
 operationButtons.forEach(button => {
@@ -39,13 +39,15 @@ submitBtn.addEventListener('click', calculateResult);
 // Functions
 // =====================================================
 function checkUserInput() {
-    const regex = new RegExp(/\D+/,'g');
+    const regex = new RegExp(/[\d\.]/,'g');
 
-    // if user input is not a number, remove it from the input field:
-    if (regex.test(this.value)) {
+    // if user input is not a number or dot, remove it from the input
+    if (!regex.test(this.value[this.value.length -1])) {
         this.value = this.value.slice(0, -1);
     }
 }
+
+
 function updateOperation() {
 
     if (operationBtnWasClicked) {
@@ -97,7 +99,16 @@ function resetForm() {
 function addFloatingPoint() {
     // 1. input is empty, add 0 and floating point
     // 2. input has numbers, add floating point after these numbers
+    // 3. if floating point already in the number, do not add it again
+
+    if (input.value.indexOf('.') > -1) {
+        input.focus();
+        return;
+    }
+
     if (input.value === '') input.value = '0.';
+    else input.value = input.value + '.';
+
     input.focus();
 }
 
