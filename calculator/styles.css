@@ -13,12 +13,12 @@ body {
 }
 
 .calculator-container {
-  padding: 20px 40px 44px 20px;
+  padding: 20px 30px 60px 30px;
   border-radius: 5px;
   text-align: center;
   margin: 0 auto;
   min-height: 200px;
-  min-width: 400px;
+  min-width: 460px;
   background: #ED254E;
   position: absolute;
   top: 40%;
@@ -37,7 +37,8 @@ body {
   font-size: 90px;
   text-align: right;
   padding-right: 30px;
-  width: 340px;
+  width: 360px;
+  border-radius: .1rem;
 }
 
 .calculator-container input:focus {
@@ -76,7 +77,7 @@ body {
 }
 
 .calculator-container .btn-group-vertical {
-  right: 20px;
+  right: 26px;
   top: 20px;
 }
 
@@ -89,9 +90,9 @@ body {
 .calculator-container .btn-group-horizontal {
   display: flex;
   justify-content: stretch;
-  right: 20px;
-  bottom: 20px;
-  width: 360px;
+  right: 26px;
+  bottom: 32px;
+  width: 404px;
 }
 
 .calculator-container .btn-group-horizontal > .btn {

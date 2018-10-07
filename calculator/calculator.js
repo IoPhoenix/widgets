@@ -14,7 +14,8 @@
 let operation = '';
 let result = 0;
 let previousUserInput = 0;
-let operationWasClicked = false;
+let operationBtnWasClicked = false;
+
 
 const form = document.getElementById('calculatorForm');
 const input = form.elements["user-input"];
@@ -24,6 +25,8 @@ const [resetBtn, floatingPointBtn, submitBtn] = document.querySelectorAll('.acti
 
 // Event Listeners
 // =====================================================
+input.addEventListener('input', checkUserInput);
+
 operationButtons.forEach(button => {
     button.addEventListener('click', updateOperation);
 });
@@ -35,26 +38,36 @@ submitBtn.addEventListener('click', calculateResult);
 
 // Functions
 // =====================================================
-function updateOperation() {
-    operation = this.getAttribute('data-operation');
-    console.log('operation: ', operation);
-    console.log('user input: ', input.value);
-    console.log('operationWasClicked: ', operationWasClicked);
+function checkUserInput() {
+    const regex = new RegExp(/\D+/,'g');
 
-    if (operationWasClicked) {
+    // if user input is not a number, remove it from the input field:
+    if (regex.test(this.value)) {
+        this.value = this.value.slice(0, -1);
+    }
+}
+function updateOperation() {
+
+    if (operationBtnWasClicked) {
         // perform relevant calulation and update result variable
         calculate(operation, +previousUserInput, +input.value);
         
         // show result to the user
         input.value = result;
-
+    
         // update user input variable
         previousUserInput = result;
+
+        operation = this.getAttribute('data-operation');
+       
+        input.select();
     } else {
-        previousUserInput = input.value;
-        operationWasClicked = true;
+        operation = this.getAttribute('data-operation');
+
+        previousUserInput = input.value === '' ? 0 : input.value;
+        operationBtnWasClicked = true;
+        input.select();
     }
-    input.select();
 }
 
 function calculate(operationType, num1, num2) {
@@ -76,19 +89,26 @@ function calculate(operationType, num1, num2) {
 
 function resetForm() {
     form.reset();
-    userInput = 0;
+    previousUserInput = 0;
     result = 0;
-    operationWasClicked = false;
+    operationBtnWasClicked = false;
 }
 
 function addFloatingPoint() {
-
+    // 1. input is empty, add 0 and floating point
+    // 2. input has numbers, add floating point after these numbers
+    if (input.value === '') input.value = '0.';
+    input.focus();
 }
 
 function calculateResult() {
     calculate(operation, +previousUserInput, +input.value);
     input.value = result;
+
+    // store the result as the last input value 
+    previousUserInput = result;
     input.select();
+    operationBtnWasClicked = false;
 }
 
 function divide(a,b) {
