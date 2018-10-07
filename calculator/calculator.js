@@ -9,8 +9,6 @@
 
 // Variables
 // =====================================================
-
-
 let operation = '';
 let result = 0;
 let previousUserInput = 0;
@@ -49,21 +47,15 @@ function checkUserInput() {
 
 
 function updateOperation() {
-
     if (operationBtnWasClicked) {
-        // perform relevant calulation and update result variable
-        calculate(operation, +previousUserInput, +input.value);
-        
-        // show result to the user
-        input.value = result;
-    
-        // update user input variable
-        previousUserInput = result;
+        console.log('operation was clicked before');
+
+        calculateResult();
 
         operation = this.getAttribute('data-operation');
-       
-        input.select();
+        console.log('operation was updated to: ', operation);
     } else {
+        console.log('operation clicked for the first time');
         operation = this.getAttribute('data-operation');
 
         previousUserInput = input.value === '' ? 0 : input.value;
@@ -96,6 +88,7 @@ function resetForm() {
     operationBtnWasClicked = false;
 }
 
+
 function addFloatingPoint() {
     // 1. input is empty, add 0 and floating point
     // 2. input has numbers, add floating point after these numbers
@@ -106,20 +99,21 @@ function addFloatingPoint() {
         return;
     }
 
-    if (input.value === '') input.value = '0.';
-    else input.value = input.value + '.';
-
+    input.value = input.value === '' ? '0.' : input.value + '.';
     input.focus();
 }
 
+
 function calculateResult() {
+    // if equal sign was clicked without providing second number, do nothing:
+    if (operationBtnWasClicked === false && previousUserInput === 0) return;
+
     calculate(operation, +previousUserInput, +input.value);
     input.value = result;
 
     // store the result as the last input value 
     previousUserInput = result;
     input.select();
-    operationBtnWasClicked = false;
 }
 
 function divide(a,b) {
