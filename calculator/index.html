@@ -4,33 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.min.css">
     <title>⊞ Calculator</title>
 </head>
 <body>
-    <div class="calculator-container">
-        <form id="calculatorForm">
-            <div class="form-group">
-                <label for="user-input" class="sr-only">Number input</label>
-                <input type="text" class="form-control" id="user-input" placeholder="0">
+    <div id="calculator">
+        <input type="text" id="user-input">
+        <div class="operators">
+            <div>÷</div>
+            <div>✕</div>
+            <div>―</div>
+            <div>+</div>
+        </div>
+        <div class="leftPanel">
+            <div class="numbers">
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>0</div>
             </div>
-            <div class="btn-group-vertical position-absolute" aria-label="Vertical button group">
-                <button type="button" class="btn btn-primary operation" data-operation="divide">÷</button>
-                <button type="button" class="btn btn-primary operation" data-operation="multiply">✕</button>
-                <button type="button" class="btn btn-primary operation" data-operation="substract">―</button>
-                <button type="button" class="btn btn-primary operation" data-operation="add">+</button>
+            <div class="numbers">
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>.</div>
             </div>
-            <div class="btn-group-horizontal position-absolute" aria-label="Horizontal button group">
-                <button type="button" class="btn btn-secondary action"  data-action="resetForm">RESET</button>
-                <button type="button" class="btn btn-secondary action" data-action="addFloatingPoint">.</button>
-                <button type="button" class="btn btn-primary action" data-action="calculateResult">=</button>
+            <div class="numbers">
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+              <div id="clear">C</div>
             </div>
-        </form>
-    </div>
+            <div id="result">=</div>
+        </div> <!-- leftPanel -->
+      </div>  <!-- #calculator -->
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="calculator.js"></script>
 </body>
 </html>
+
+
+      
