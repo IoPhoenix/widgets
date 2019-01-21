@@ -13,9 +13,6 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: 5px;
   font-size: 1.8rem;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
   background-color: #FFFFFF;
 }
 
@@ -33,13 +30,15 @@ body {
 #calculator #user-input {
   border: 1px solid #ddd;
   border-radius: 1px;
-  height: 60px;
-  padding-right: 15px;
+  height: 40px;
   padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 5%;
   text-align: right;
-  margin-right: 6px;
+  width: 95%;
   font-size: 2.5rem;
   overflow-x: auto;
+  font-weight: 300;
 }
 
 .operators {
@@ -54,7 +53,7 @@ body {
   width: 60px;
   text-align: center;
   padding: 10px;
-  margin: 20px 4px 10px 0;
+  margin: 20px 0 10px 0;
   cursor: pointer;
   background-color: #ddd;
   font-weight: 300;
@@ -104,8 +103,8 @@ div#result {
   border-radius: 1px;
   width: 60px;
   text-align: center;
-  padding: 127px 10px;
-  margin: 10px 6px 10px 0;
+  padding: 124px 10px;
+  margin: 10px 0;
   vertical-align: top;
   cursor: pointer;
   color: #FFF;

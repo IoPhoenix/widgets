@@ -1,135 +1,127 @@
-/*
-    Test cases:
-    -user clicks one of the operations right away
-    -user enters first number, clicks operation
-    -user clicks operation after result is calculated
-    -user resets the form
-    -user tries to devide by 0
-*/
+// Source: https://codepen.io/prampcontent/pen/jvNyKR
 
 // Variables
 // =====================================================
-let operation = '';
-let result = 0;
-let previousUserInput = 0;
-let operationBtnWasClicked = false;
+
+const input = document.getElementById('user-input');
+const operators = document.querySelectorAll('operators div');
+const numbers = document.querySelectorAll('.numbers div:not(.action)'); 
+const [clearInputBtn, calculateResultBtn] = document.querySelectorAll('.action');
+let isResultDisplayed = false; // to track the result on the screen
+
+const operations = {
+   '÷': (a,b) => a / b,
+   '×': (a,b) => a * b,
+   '-': (a,b) => a - b,
+   '+': (a,b) => parseFloat(a) + parseFloat(b)
+}
+
+const operatorKeys = Object.keys(operations);
 
 
-const form = document.getElementById('calculatorForm');
-const input = form.elements["user-input"];
-const operationButtons = document.querySelectorAll('.operation');
-const [resetBtn, floatingPointBtn, submitBtn] = document.querySelectorAll('.action');
 
 // Event Listeners
 // =====================================================
 
-input.addEventListener('input', checkUserInput);
+numbers.forEach(number => number.addEventListener('click', handleNumberClick));
+operators.forEach(operator => operator.addEventListener('click', handleOperatorClick));
+calculateResultBtn.addEventListener('click', calculateResult);
+clearInputBtn.addEventListener('click', clearInput);
 
-operationButtons.forEach(button => {
-    button.addEventListener('click', updateOperation);
-});
-
-resetBtn.addEventListener('click', resetForm);
-floatingPointBtn.addEventListener('click', addFloatingPoint);
-submitBtn.addEventListener('click', calculateResult);
 
 
 // Functions
 // =====================================================
-function checkUserInput() {
-    const regex = new RegExp(/[\d\.]/,'g');
 
-    // if user input is not a number or dot, remove it from the input
-    if (!regex.test(this.value[this.value.length -1])) {
-        this.value = this.value.slice(0, -1);
-    }
-}
+function handleNumberClick(e) {
+    console.log('Number is clicked!');
+    console.log('e.target.innerHTML: ', e.target.innerHTML);
 
+    // select last char in the input string:
+    const currentInput = input.innerHTML;
+    const lastChar = currentInput[currentInput.length - 1];
 
-function updateOperation() {
-    if (operationBtnWasClicked) {
-        console.log('operation was clicked before');
+    //  if result is not yet diplayed, add input
+     if (isResultDisplayed === false) {
+        input.innerHTML += e.target.innerHTML;
 
-        calculateResult();
+     // if result is currently displayed and user pressed an operator
+    } else if (isResultDisplayed && operatorKeys.indexOf(lastChar) >= 0) {
 
-        operation = this.getAttribute('data-operation');
-        console.log('operation was updated to: ', operation);
+         // we need to keep on adding to the string for next operation
+         isResultDisplayed = false;
+        input.innerHTML += e.target.innerHTML;
+
+    // if result is displayed and user pressed a number
     } else {
-        console.log('operation clicked for the first time');
-        operation = this.getAttribute('data-operation');
-
-        previousUserInput = input.value === '' ? 0 : input.value;
-        operationBtnWasClicked = true;
-        input.select();
+    
+        // clear the input string, add new input to start the new operation
+        isResultDisplayed = false;
+        input.innerHTML = e.target.innerHTML;
     }
 }
+     
 
-function calculate(operationType, num1, num2) {
-    switch (operationType) {
-        case 'divide':
-            result = divide(num1, num2);
-            break;
-        case 'multiply':
-            result = multiply(num1, num2);
-            break;
-        case 'add':
-            result = add(num1, num2);
-            break;
-        case 'substract':
-            result = substract(num1, num2);
-            break;
+function handleOperatorClick(e) {
+
+     // select the last char
+     var currentString = input.innerHTML;
+     var lastChar = currentString[currentString.length - 1];
+
+    // if last char is an operator, replace it with the currently pressed one
+    if (operatorKeys.indexOf(lastChar) >= 0) {
+        var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
+        input.innerHTML = newString;
+    
+    // if this isn't the first key pressed
+    } else if (currentString.length !== 0) {
+    
+        // else just add the operator pressed to the input
+        input.innerHTML += e.target.innerHTML;
     }
 }
-
-function resetForm() {
-    form.reset();
-    previousUserInput = 0;
-    result = 0;
-    operationBtnWasClicked = false;
-}
-
-
-function addFloatingPoint() {
-    // 1. input is empty, add 0 and floating point
-    // 2. input has numbers, add floating point after these numbers
-    // 3. if floating point already in the number, do not add it again
-
-    if (input.value.indexOf('.') > -1) {
-        input.focus();
-        return;
-    }
-
-    input.value = input.value === '' ? '0.' : input.value + '.';
-    input.focus();
-}
-
 
 function calculateResult() {
-    // if equal sign was clicked without providing second number, do nothing:
-    if (operationBtnWasClicked === false && previousUserInput === 0) return;
 
-    calculate(operation, +previousUserInput, +input.value);
-    input.value = result;
+  var inputString = input.innerHTML;
+  console.log('inputString: ', inputString);
 
-    // store the result as the last input value 
-    previousUserInput = result;
-    input.select();
+  if (!inputString.length) return;
+
+  // forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
+  var numbers = inputString.split(/\+|\-|\×|\÷/g);
+  console.log('numbers: ', numbers);
+
+  // forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
+  // first we replace all the numbers and dot with empty string and then split
+  var operators = inputString.replace(/[0-9]|\./g, "").split("");
+    console.log('operators: ', operators);
+
+
+  // now we are looping through the array and doing one operation at a time.
+  // the operations will execute according to their order in the operatorKeys array
+  // as we move we are alterning the original numbers and operators array
+  // the final element remaining in the array will be the output
+  var operatorKeys = Object.keys(operations);
+
+  for (var i = 0; i < operatorKeys.length; i++) {
+
+    var currentOperator = operatorKeys[i];
+    var currentOperation = operations[currentOperator];
+    var nextOperationToExecute = operators.indexOf(currentOperator);
+
+    while (nextOperationToExecute !== -1) {
+      var nextResult = currentOperation(numbers[nextOperationToExecute], numbers[nextOperationToExecute + 1]);
+      numbers.splice(nextOperationToExecute, 2, nextResult);
+      operators.splice(nextOperationToExecute, 1);
+      var nextOperationToExecute = operators.indexOf(currentOperator);
+    }
+  }
+    
+  input.innerHTML = numbers[0]; // display the output
+  isResultDisplayed = true; 
 }
 
-function divide(a,b) {
-    if (b === 0) return;
-
-    return a / b;
-}
-
-function multiply(a,b) {
-    return a * b;
-}
-
-function add(a,b) {
-    return a + b;
-}
-
-function substract(a,b) {
-    return a - b;
+function clearInput() {
+    input.innerHTML = '';
 }
