@@ -127,16 +127,20 @@ $(function() {
 
         for (let i = 0; i < operatorKeys.length; i++) {
             
-            var currentOperator = operatorKeys[i]; // '+'
-            var currentOperation = operations[currentOperator]; // (a,b) => a / b,
-            var nextOperationToExecute = operators.indexOf(currentOperator);
-            console.log('nextOperationToExecute', nextOperationToExecute);
+            const currentOperator = operatorKeys[i]; // '+'
+            const currentOperation = operations[currentOperator]; // (a,b) => a / b,
+            let indexOfNextOperationToExecute = operators.indexOf(currentOperator);
+            console.log('currentOperator: ', currentOperator, 'currentOperation: ', currentOperation, 'indexOfNextOperationToExecute: ', indexOfNextOperationToExecute);
             
-            while (nextOperationToExecute !== -1) {
-                var nextResult = currentOperation(numbers[nextOperationToExecute], numbers[nextOperationToExecute + 1]);
-                numbers.splice(nextOperationToExecute, 2, nextResult);
-                operators.splice(nextOperationToExecute, 1);
-                var nextOperationToExecute = operators.indexOf(currentOperator);
+            while (indexOfNextOperationToExecute !== -1) {
+                const nextResult = currentOperation(numbers[indexOfNextOperationToExecute], numbers[indexOfNextOperationToExecute + 1]);
+                numbers.splice(indexOfNextOperationToExecute, 2, nextResult);
+                numbers.splice(indexOfNextOperationToExecute, 2, nextResult);
+                console.log('numbers spliced: ', numbers);
+                operators.splice(indexOfNextOperationToExecute, 1);
+                console.log('operators spliced: ', operators);
+                indexOfNextOperationToExecute = operators.indexOf(currentOperator);
+                console.log('indexOfNextOperationToExecute next: ', indexOfNextOperationToExecute);
             }
         }
         
