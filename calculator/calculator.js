@@ -2,7 +2,7 @@
 
 /* Edge cases:
   -handle multiple point signs in a single number
-  -handle incorrect numbers
+  -handle calculations in ()
 */
 
 // Variables
@@ -91,24 +91,35 @@ $(function() {
 
     function calculateResult() {
         
-        const userInput = input.val();
+        let userInput = input.val();
+
+        // is user input is empty, do not proceed
+        if (!userInput.length) return;
+
+        const lastChar = userInput[userInput.length - 1];
+
+        // if last char entered is an operator, show error
+        if (operatorKeys.indexOf(lastChar) !== -1) {
+            input.val(0);
+            return;
+        }
+        
         console.log('userInput: ', userInput);
         
-        if (!userInput.length) return;
         
         // create array of numbers, remove empty strings:
         const numbers = userInput.split(/\+|\-|\×|\÷/g).filter(Boolean);
         console.log('numbers: ', numbers);
         
-        // forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
-        // first we replace all the numbers and dot with empty string and then split
+        // create array of operators, e.g. ["+", "+", "-", "*", "/"]
+        // first replace all the numbers and dot with empty string and then split
         const operators = userInput.replace(/[0-9]|\./g, '').split('');
         console.log('operators: ', operators);
         
         // is user entered only one number, no calculations are needed:
         if (numbers.length < 2) return;
         
-        
+
         // loop through the numbers and do one operation at a time.
         //  operations will execute according to their order in the operatorKeys array
         // as we move change the original numbers and operators array
@@ -116,9 +127,10 @@ $(function() {
 
         for (let i = 0; i < operatorKeys.length; i++) {
             
-            var currentOperator = operatorKeys[i];
-            var currentOperation = operations[currentOperator];
+            var currentOperator = operatorKeys[i]; // '+'
+            var currentOperation = operations[currentOperator]; // (a,b) => a / b,
             var nextOperationToExecute = operators.indexOf(currentOperator);
+            console.log('nextOperationToExecute', nextOperationToExecute);
             
             while (nextOperationToExecute !== -1) {
                 var nextResult = currentOperation(numbers[nextOperationToExecute], numbers[nextOperationToExecute + 1]);
