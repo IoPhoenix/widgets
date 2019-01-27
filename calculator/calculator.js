@@ -3,6 +3,7 @@
 /* Edge cases:
   -handle multiple point signs in a single number
   -handle calculations in ()
+  -handle numbers starting with -
 */
 
 // Variables
@@ -74,12 +75,18 @@ $(function() {
         const lastChar = userInput[userInput.length - 1];
         const targetValue = $(e.target).text();
 
+        // if user is using '-' operator as minus sign
+        if (!userInput.length && targetValue === '-') {
+            console.log('test');
+            input.val(input.val() + targetValue);
+        }
+
         // if last char is an operator, replace it with the current input
-        if (operatorKeys.indexOf(lastChar) >= 0) {
+        else if (operatorKeys.indexOf(lastChar) >= 0) {
             const newString = userInput.substring(0, userInput.length - 1) + targetValue;
             input.val(newString);
             
-        // if this isn't the first key pressed
+       
         } else if (userInput.length) {
             
             // else just add the operator pressed to the input
@@ -104,37 +111,42 @@ $(function() {
             return;
         }
         
-        console.log('userInput: ', userInput);
-        
         
         // create array of numbers, remove empty strings:
         const numbers = userInput.split(/\+|\-|\×|\÷/g).filter(Boolean);
-        console.log('numbers: ', numbers);
         
         // create array of operators, e.g. ["+", "+", "-", "*", "/"]
         // first replace all the numbers and dot with empty string and then split
         const operators = userInput.replace(/[0-9]|\./g, '').split('');
-        console.log('operators: ', operators);
         
+        if (userInput[0] === '-') {
+            numbers[0] = -numbers[0];
+            operators.splice(0,1);
+        }
+
+        console.log('userInput: ', userInput, 'numbers: ', numbers, 'operators: ', operators);
+
         // is user entered only one number, no calculations are needed:
         if (numbers.length < 2) return;
         
 
-        // loop through the numbers and do one operation at a time.
+        // loop through the operators and do one operation at a time.
         //  operations will execute according to their order in the operatorKeys array
-        // as we move change the original numbers and operators array
+        // by doing calculations on at a time, replace the original numbers with new resilt
+        // and remove operators that have been already used.
         // the final element remaining in the array will be the output
 
         for (let i = 0; i < operatorKeys.length; i++) {
             
-            const currentOperator = operatorKeys[i]; // '+'
-            const currentOperation = operations[currentOperator]; // (a,b) => a / b,
+            const currentOperator = operatorKeys[i]; 
+            const currentOperation = operations[currentOperator]; 
             let indexOfNextOperationToExecute = operators.indexOf(currentOperator);
+
             console.log('currentOperator: ', currentOperator, 'currentOperation: ', currentOperation, 'indexOfNextOperationToExecute: ', indexOfNextOperationToExecute);
             
+            // while operator is present in the users input:
             while (indexOfNextOperationToExecute !== -1) {
                 const nextResult = currentOperation(numbers[indexOfNextOperationToExecute], numbers[indexOfNextOperationToExecute + 1]);
-                numbers.splice(indexOfNextOperationToExecute, 2, nextResult);
                 numbers.splice(indexOfNextOperationToExecute, 2, nextResult);
                 console.log('numbers spliced: ', numbers);
                 operators.splice(indexOfNextOperationToExecute, 1);
