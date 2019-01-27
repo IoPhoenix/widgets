@@ -3,7 +3,8 @@
 /* Edge cases:
   -handle multiple point signs in a single number
   -handle calculations in ()
-  -handle numbers starting with -
+  -handle first number starting with negative sign  +
+  -handle num / 0 case
 */
 
 // Variables
@@ -18,7 +19,7 @@ $(function() {
     let isResultDisplayed = false; // track the result on the screen
     
     const operations = {
-        '÷': (a,b) => a / b,
+        '÷': (a,b) => (b == 0) ? null : a / b,
         '×': (a,b) => a * b,
         '-': (a,b) => a - b,
         '+': (a,b) => parseFloat(a) + parseFloat(b)
@@ -111,7 +112,6 @@ $(function() {
             return;
         }
         
-        
         // create array of numbers, remove empty strings:
         const numbers = userInput.split(/\+|\-|\×|\÷/g).filter(Boolean);
         
@@ -119,9 +119,10 @@ $(function() {
         // first replace all the numbers and dot with empty string and then split
         const operators = userInput.replace(/[0-9]|\./g, '').split('');
         
+        // if first number was negative, leave it as negative:
         if (userInput[0] === '-') {
             numbers[0] = -numbers[0];
-            operators.splice(0,1);
+            operators.splice(0,1); // remove first '-' from operators array
         }
 
         console.log('userInput: ', userInput, 'numbers: ', numbers, 'operators: ', operators);
@@ -147,6 +148,7 @@ $(function() {
             // while operator is present in the users input:
             while (indexOfNextOperationToExecute !== -1) {
                 const nextResult = currentOperation(numbers[indexOfNextOperationToExecute], numbers[indexOfNextOperationToExecute + 1]);
+
                 numbers.splice(indexOfNextOperationToExecute, 2, nextResult);
                 console.log('numbers spliced: ', numbers);
                 operators.splice(indexOfNextOperationToExecute, 1);
