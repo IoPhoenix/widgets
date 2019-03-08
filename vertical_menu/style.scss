@@ -1,3 +1,6 @@
+
+//  --- Global styles ---
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,8 +12,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     background-color: #3336AC;
-    background: linear-gradient(135.75deg,#a3649f 0,#5869b4 55.55%,#a2f69f 100%);
+    background: linear-gradient(135.75deg,#a3649f 0,#3336AC 55.55%,#a2f69f 100%);
 }
+
+
 
 .container {
     max-width: 1270px;
@@ -107,16 +112,10 @@ body {
     }
 }
 
-
-.hide {
-    opacity: 0;
-    display: none;
-}
 .show {
     opacity: 1;
     display: block;
 }
-
 
 // --- Animations ---
 
