@@ -10,7 +10,6 @@ body {
 }
 
 .container {
-  border: 1px solid green;
   min-width: 1170px;
   min-height: 100vw;
   padding: 100px 120px;
@@ -57,16 +56,11 @@ body {
 }
 
 .nav-text__item {
-  opacity: 0;
-  display: none;
-  -webkit-animation: fadein 0.25s cubic-bezier(0, 0.35, 0.26, 1);
-  -moz-animation: fadein 0.25s cubic-bezier(0, 0.35, 0.26, 1);
-  animation: fadein 0.25s cubic-bezier(0, 0.35, 0.26, 1);
-}
-
-.nav-text__item--show {
   display: block;
   opacity: 1;
+  -webkit-animation: fadeIn 0.25s cubic-bezier(0, 0.35, 0.26, 1);
+  -moz-animation: fadeIn 0.25s cubic-bezier(0, 0.35, 0.26, 1);
+  animation: fadeIn 0.25s cubic-bezier(0, 0.35, 0.26, 1);
 }
 
 .nav-menu__list {
@@ -81,15 +75,9 @@ body {
   -moz-transition: background-position .25s ease;
   -webkit-transition: background-position .25s ease;
   transition: background-position .25s ease;
-  transition-property: background-position;
-  transition-duration: 0.25s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
   background-image: url(nav-arrow.png);
   background-repeat: no-repeat;
   background-position: -40px 30%;
-  background-position-x: -40px;
-  background-position-y: 30%;
   background-size: 24px 55px;
 }
 
@@ -124,7 +112,12 @@ body {
   color: #fff;
 }
 
-@-webkit-keyframes fadein {
+.hide {
+  opacity: 0;
+  display: none;
+}
+
+@-webkit-keyframes fadeIn {
   0% {
     -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
@@ -141,7 +134,7 @@ body {
   }
 }
 
-@-moz-keyframes fadein {
+@-moz-keyframes fadeIn {
   0% {
     -moz-transform: translateY(-20px);
     transform: translateY(-20px);
@@ -158,7 +151,7 @@ body {
   }
 }
 
-@-o-keyframes fadein {
+@-o-keyframes fadeIn {
   0% {
     -o-transform: translateY(-20px);
     transform: translateY(-20px);
@@ -175,7 +168,7 @@ body {
   }
 }
 
-@keyframes fadein {
+@keyframes fadeIn {
   0% {
     transform: translateY(-20px);
     transform: scale(0.85);
