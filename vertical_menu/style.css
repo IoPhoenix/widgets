@@ -10,9 +10,10 @@ body {
 }
 
 .container {
+  border: 1px solid green;
   min-width: 1170px;
   min-height: 100vw;
-  padding: 60px 120px;
+  padding: 80px 120px;
   margin-right: auto;
   margin-left: auto;
   background-color: #3336AC;
@@ -32,6 +33,12 @@ body {
   width: 66.66667%;
 }
 
+.nav-text {
+  padding: 0% 7%;
+  position: fixed;
+  right: 0;
+}
+
 .nav-text__list {
   list-style: none;
 }
@@ -41,14 +48,50 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 48px;
-  line-height: 1.1em;
+  line-height: 1.3em;
   color: #c2cdea;
 }
 
-.nav-text span {
+.nav-text__tagline span {
   color: #f7e5e5;
 }
 
 .nav-menu__list {
   list-style: none;
+}
+
+.nav-menu__item {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding: 0.5em 0;
+  -moz-transition: background-position .25s ease;
+  -webkit-transition: background-position .25s ease;
+  transition: background-position .25s ease;
+  transition-property: background-position;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  background-image: url(nav-arrow.png);
+  background-repeat: no-repeat;
+  background-position: -40px 30%;
+  background-position-x: -40px;
+  background-position-y: 30%;
+  background-size: 24px 55px;
+}
+
+.nav-menu__title {
+  font-size: 1.5em;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.nav-menu__description {
+  font-size: 1em;
+  margin: 0 0 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #fff;
 }
