@@ -1,24 +1,16 @@
-const projectItems = document.querySelectorAll('.nav-menu__item');
-const projectImages = document.querySelectorAll('.nav-text__item');
-const tagline = document.querySelector('.nav-text__tagline');
+// source: https://www.addthis.com/get/share/#menu
 
+$(document).ready(function() {
 
-document.addEventListener('DOMContentLoaded', function() {
-    projectImages.forEach(item => {
-        item.classList.add('nav-text__item--hide')
-    });
+    // show relevant project image when hovering over menu item:
+    $('.nav-menu__item').each(function(index, value) {
+        $(this).hover(function() {
+            $('.nav-text__tagline').hide();
+            $(`.project${index+1}-img`).addClass('show');
+        }, function(){
+            $(`.project${index+1}-img`).removeClass('show');
+            $('.nav-text__tagline').show();
+        });
+    })
 
-    projectItems.forEach(item => {
-        console.log('item is: ', item);
-        item.addEventListener('mouseover', showImage);
-    });
-});
-
-
-function showImage() {
-    tagline.classList.add('hide');
-    
-    const projectNum = +(this.getAttribute('data-name').slice(-1));
-
-    projectImages[projectNum].classList.add('hide');
-}
+})
