@@ -13,7 +13,7 @@ body {
     border: 1px solid green;
     min-width: 1170px;
     min-height: 100vw;
-    padding: 80px 120px;
+    padding: 100px 120px;
     margin-right: auto;
     margin-left: auto;
     background-color: #3336AC;
@@ -75,6 +75,18 @@ body {
         background-position-x: -40px;
         background-position-y: 30%;
         background-size: 24px 55px;
+        span {
+            display: block;
+            -webkit-transition: transform 0.2s ease;
+            -moz-transition: transform 0.2s ease;
+            transition: transform 0.2s ease;
+        }
+        &:hover {
+            background-position: 0 20px;
+            & span {
+                transform: translateX(40px);
+            }
+        }
     }
     &__title {
         font-size: 1.5em;
