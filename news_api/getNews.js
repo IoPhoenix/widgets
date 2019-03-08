@@ -2,7 +2,7 @@
 
 $(function() {
     const baseLink = 'https://newsapi.org/v2/top-headlines?',
-        key = MY_API_KEY,
+        key = 'c05ac19310884a75a3a267b398fc1c36',
         articles = $('#articles'),
         error = $('#error');
     let requestUrl;

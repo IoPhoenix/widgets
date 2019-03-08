@@ -38,7 +38,8 @@ body {
   width: 95%;
   font-size: 2.5rem;
   overflow-x: auto;
-  font-weight: 300;
+  font-weight: 200;
+  overflow-x: auto;
 }
 
 .operators {
@@ -56,7 +57,7 @@ body {
   margin: 20px 0 10px 0;
   cursor: pointer;
   background-color: #ddd;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .operators div:hover {
@@ -66,16 +67,16 @@ body {
   border-color: #aaa;
 }
 
-.leftPanel {
+.numberPanel {
   display: flex;
 }
 
-.leftPanel .numbers {
+.numberPanel .numbers {
   flex: 1;
 }
 
-.leftPanel .numbers div {
-  font-weight: 300;
+.numberPanel .numbers div {
+  font-weight: 200;
   display: inline-block;
   border: 1px solid #ddd;
   border-radius: 1px;
@@ -88,16 +89,12 @@ body {
   transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
 }
 
-.leftPanel .numbers div:hover {
+.numberPanel .numbers div:hover {
   background-color: #f1f1f1;
 }
 
-.leftPanel .numbers div:active {
-  font-weight: bold;
-}
-
 div#result {
-  font-weight: 300;
+  font-weight: 200;
   display: inline-block;
   border: 1px solid #44414E;
   border-radius: 1px;

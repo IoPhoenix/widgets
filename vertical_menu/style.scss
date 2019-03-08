@@ -8,6 +8,7 @@
 }
 
 body {
+    position: relative;
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -117,6 +118,17 @@ body {
     display: block;
 }
 
+
+footer {
+    width: 100%;
+    bottom: 0;
+    height: 40px;
+    position: absolute;
+    color: white;
+    .container {
+        padding: 0 120px;
+    }
+}
 // --- Animations ---
 
 @-webkit-keyframes fadeIn {
@@ -182,3 +194,4 @@ body {
 		opacity: 1;
 	}
 }
+
