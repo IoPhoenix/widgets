@@ -15,11 +15,24 @@ body {
     font-weight: 300;
 }
 
-// === Mixins ===
+// === Mixins and Variables ===
+
 $mobile-small-width: 480px;
 $mobile-large-width: 648px;
 $tablet-width: 960px;
 $desktop-width: 1200px;
+
+%prefix {
+  position: absolute;
+  z-index: -1;
+  height: 2px;
+  margin: auto;
+  background-color: #354b5a;
+  content: '';
+  bottom: 0;
+  top: 0;
+  width: initial;
+}
 
 
 @mixin atSmallest {
@@ -70,21 +83,68 @@ $desktop-width: 1200px;
             width: calc(100% * 0.08);
             margin-right: auto;
             margin-left: auto;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
+    }
+
+    &__list {
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
     }
 }
 
-.container {
-    max-width: 1270px;
-    min-width: 1170px;
-    padding: 100px 120px;
-    margin-right: auto;
-    margin-left: auto;
-    
-}
 
-.col {
-    float: left;
+.block {
     position: relative;
+    // border: 1px solid red;
+    -webkit-flex: 0 0 -webkit-calc( 25% - 12px);
+    -moz-box-flex: 0;
+    -ms-flex: 0 0 calc(25% - 12px);
+    flex: 0 0 calc(25% - 12px);
+    margin: 0 6px;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 1;
+    
+    &__icon {
+        width: 144px;
+        height: 144px;
+        margin-bottom: 80px;
+    }
+
+    &__bullet {
+      position: absolute;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: #f8510f;
+      top: 176px;
+      width: 12px;
+      height: 12px;
+
+      &:after {
+        @extend %prefix;
+        left: 50%;
+        right: -192px;
+        width: initial;
+      }
+
+      &:before {
+        @extend %prefix;
+        left: -192px;
+        top: 0;
+        right: 50%;
+      }
+
+    }
 }
