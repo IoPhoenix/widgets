@@ -10,10 +10,10 @@
 
 body {
     position: relative;
-    min-height: 100vh;
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
 }
+
 
 // === Mixins and Variables ===
 
@@ -59,11 +59,19 @@ $desktop-width: 1200px;
   }
 }
 
-
+// ============================
 
 .services {
+    min-height: 100vh;
     padding: 80px 0;
     background-color: #22303a;
+
+    &__content {
+      padding-right: 36px;
+      padding-left: 36px;
+      margin: 0 auto;
+      max-width: 1440px;
+    }
     &__title {
         line-height: 1.25;
         text-align: center;
@@ -102,6 +110,9 @@ $desktop-width: 1200px;
 .block {
     position: relative;
     // border: 1px solid red;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-flex: 0 0 -webkit-calc( 25% - 12px);
     -moz-box-flex: 0;
     -ms-flex: 0 0 calc(25% - 12px);
@@ -112,20 +123,23 @@ $desktop-width: 1200px;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     z-index: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
     
     &__icon {
         width: 144px;
         height: 144px;
         margin-bottom: 80px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     &__bullet {
       position: absolute;
-      margin: 0 auto;
+      left: 50%;
       border-radius: 50%;
       background-color: #f8510f;
       top: 176px;
@@ -145,6 +159,37 @@ $desktop-width: 1200px;
         top: 0;
         right: 50%;
       }
+     
+      :before {
+        left: 0;
+      }
+    }
 
+    &__text {
+      border: 1px solid green;
+      margin: 0 12px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      max-width: 266px;
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+    }
+
+    &__subtitle {
+      font-size: 1.3125rem;
+      line-height: 1.75;
+      color: #b2bec8;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    &__description {
+      line-height: 1.75;
+      color: #b2bec8;
+      font-weight: 300;
     }
 }
