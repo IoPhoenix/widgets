@@ -2,6 +2,7 @@
 //  --- Global styles ---
 
 * {
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,9 +11,69 @@
 body {
     position: relative;
     min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+// === Mixins ===
+$mobile-small-width: 480px;
+$mobile-large-width: 648px;
+$tablet-width: 960px;
+$desktop-width: 1200px;
+
+
+@mixin atSmallest {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+      @content;
+    }
+  }
+
+@mixin atSmall {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+      @content;
+    }
+}
+
+@mixin atMedium {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin atLarge {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
 }
 
 
+
+.services {
+    padding: 80px 0;
+    background-color: #22303a;
+    &__title {
+        line-height: 1.25;
+        text-align: center;
+        font-family: 'Rubik Mono One', sans-serif;
+        @include atLarge {
+            margin-bottom: 72px;
+            font-size: 44px;
+        }
+        &--light {
+            color: #fff;
+        }
+        &:before {
+            content: '';
+            background: #00c0fa;
+            height: 4px;
+            display: block;
+            width: calc(100% * 0.08);
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 8px;
+        }
+    }
+}
 
 .container {
     max-width: 1270px;
