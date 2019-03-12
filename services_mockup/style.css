@@ -25,7 +25,7 @@ body {
 
 .services {
   min-height: 100vh;
-  padding: 80px 0;
+  padding: 30px 0;
   background-color: #22303a;
 }
 
@@ -128,8 +128,8 @@ body {
 }
 
 .block__icon {
-  width: 144px;
-  height: 144px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 80px;
   margin-left: auto;
   margin-right: auto;
@@ -140,7 +140,7 @@ body {
   left: 50%;
   border-radius: 50%;
   background-color: #f8510f;
-  top: 176px;
+  top: 240px;
   width: 12px;
   height: 12px;
 }

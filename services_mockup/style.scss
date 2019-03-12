@@ -64,7 +64,7 @@ $desktop-width: 1200px;
 
 .services {
     min-height: 100vh;
-    padding: 80px 0;
+    padding: 30px 0;
     background-color: #22303a;
 
     &__content {
@@ -161,8 +161,8 @@ $desktop-width: 1200px;
     flex-direction: column;
     
     &__icon {
-        width: 144px;
-        height: 144px;
+        width: 200px;
+        height: 200px;
         margin-bottom: 80px;
         margin-left: auto;
         margin-right: auto;
@@ -173,7 +173,7 @@ $desktop-width: 1200px;
       left: 50%;
       border-radius: 50%;
       background-color: $orange;
-      top: 176px;
+      top: 240px;
       width: 12px;
       height: 12px;
 
