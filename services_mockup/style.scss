@@ -1,4 +1,4 @@
-
+// Source: https://www.imgix.com/
 //  --- Global styles ---
 
 * {
@@ -16,7 +16,7 @@ body {
 
 
 // === Mixins and Variables ===
-$orange: #f8510f;
+$red: #DB382C;
 
 $mobile-small-width: 480px;
 $mobile-large-width: 648px;
@@ -118,8 +118,8 @@ $desktop-width: 1200px;
       width: 288px;
       height: 48px;
       line-height: 48px;
-      background: $orange;
-      border-color: $orange;
+      background: $red;
+      border-color: $red;
       text-align: center;
       text-decoration: none;
       color: #fff;
@@ -159,6 +159,12 @@ $desktop-width: 1200px;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    &:first-child .block__bullet::before {
+      display: none;
+    }
+    &:last-child .block__bullet::after {
+      display: none;
+    }
     
     &__icon {
         width: 200px;
@@ -172,7 +178,7 @@ $desktop-width: 1200px;
       position: absolute;
       left: 50%;
       border-radius: 50%;
-      background-color: $orange;
+      background-color: $red;
       top: 240px;
       width: 12px;
       height: 12px;
@@ -202,7 +208,7 @@ $desktop-width: 1200px;
       -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
       flex: 0 0 auto;
-      max-width: 266px;
+      max-width: 286px;
       -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -222,5 +228,6 @@ $desktop-width: 1200px;
       line-height: 1.75;
       color: #b2bec8;
       font-weight: 300;
+      margin-left: 20px;
     }
 }
