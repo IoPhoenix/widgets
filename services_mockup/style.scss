@@ -83,7 +83,7 @@ $desktop-width: 1200px;
       padding-left: 15px;
       margin: 0 auto;
       max-width: 1440px;
-      @include atSmall {
+      @include atMedium {
         padding-right: 36px;
         padding-left: 36px;
       }
@@ -112,7 +112,7 @@ $desktop-width: 1200px;
           display: block;
           width: calc(100% * 0.16);
           margin-bottom: 10px;
-          @include atSmall {
+          @include atMedium {
             width: calc(100% * 0.08);
           }
         }
@@ -125,7 +125,7 @@ $desktop-width: 1200px;
       -moz-box-pack: end;
       -ms-flex-pack: end;
       justify-content: flex-end;
-      @include atSmall {
+      @include atMedium {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
@@ -151,7 +151,7 @@ $desktop-width: 1200px;
       letter-spacing: 1px;
       cursor: pointer;
 
-      @include atSmall {
+      @include atMedium {
         line-height: 48px;
         font-size: 1.125rem;
         width: 288px;
@@ -166,7 +166,7 @@ $desktop-width: 1200px;
 
 .block {
   @extend %flexwrap;
-  // border: 1px solid red;
+  border: 1px solid red;
   position: relative;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 75%;
@@ -174,7 +174,16 @@ $desktop-width: 1200px;
   margin: 0 6px;
   z-index: 1;
 
-  @include atSmall {
+  @include atSmallest {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  @include atMedium {
     -webkit-flex: 0 0 -webkit-calc( 25% - 12px);
     -moz-box-flex: 0;
     -ms-flex: 0 0 calc(25% - 12px);
@@ -186,7 +195,7 @@ $desktop-width: 1200px;
 
   &:not(:last-of-type) {
     margin-bottom: 40px;
-    @include atSmall {
+    @include atMedium {
       margin-bottom: 0;
     }
   }
@@ -200,9 +209,24 @@ $desktop-width: 1200px;
   &__icon {
     @extend %centered;
     width: 140px;
-    height: 140px;
-    margin-bottom: 70px;
-    @include atSmall {
+    height: auto;
+    
+    @include atSmallest {
+      margin-bottom: 70px;
+      width: 200px;
+      height: 200px;
+      flex: 0 0 calc( 33.33333% - 24px);
+      margin: 0 12px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      position: relative;
+      -webkit-justify-content: center;
+      -moz-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+    @include atMedium {
       margin-bottom: 80px;
       height: 200px;
       width: 200px;
@@ -218,7 +242,14 @@ $desktop-width: 1200px;
     background-color: $red;
     width: 12px;
     height: 12px;
-    @include atSmall {
+
+    @include atSmallest {
+      right: 18%;
+      left: 0;
+      margin: 0 auto;
+    }
+
+    @include atMedium {
       top: 240px;
       left: 50%;
     }
@@ -232,7 +263,7 @@ $desktop-width: 1200px;
       bottom: -240px;
       width: 2px;
 
-      @include atSmall {
+      @include atMedium {
         height: 2px;
         left: 50%;
         right: -192px;
@@ -250,7 +281,10 @@ $desktop-width: 1200px;
       bottom: 50%;
       width: 2px;
 
-      @include atSmall {
+      @include atSmallest {
+        top: -140px;
+      }
+      @include atMedium {
         height: 2px;
         top: 0;
         bottom: 0;
@@ -262,17 +296,21 @@ $desktop-width: 1200px;
   }
 
   &__text {
-    // border: 1px solid green;
-    margin: 0 12px;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    max-width: 286px;
-   
-    @include atSmall {
+    border: 1px solid green;
+    
+    @include atSmallest {
+      margin: 0 12px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      max-width: 286px;
+      flex: 0 0 calc(50% - 24px);
       -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+    }
+   
+    @include atMedium {
     }
   }
 
@@ -284,7 +322,7 @@ $desktop-width: 1200px;
     text-align: center;
     margin-bottom: 8px;
     color: #fff;
-    @include atSmall {
+    @include atMedium {
       font-weight: 500;
     }
   }
