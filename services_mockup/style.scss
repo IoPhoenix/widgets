@@ -102,6 +102,10 @@ $desktop-width: 1200px;
         text-align: center;
         font-family: 'Rubik Mono One', sans-serif;
         margin-bottom: 32px;
+        @include atMedium {
+          margin-bottom: 64px;
+          font-size: 34px;
+        }
         @include atLarge {
             margin-bottom: 72px;
             font-size: 44px;
@@ -172,7 +176,7 @@ $desktop-width: 1200px;
 
 .block {
   @extend %flexwrap;
-  border: 1px solid red;
+  // border: 1px solid red;
   position: relative;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 75%;
@@ -220,7 +224,7 @@ $desktop-width: 1200px;
   }
     
   &__icon {
-    border: 1px solid yellow;
+    // border: 1px solid rgb(245, 245, 240);
     @extend %centered;
     width: 140px;
     height: auto;
@@ -228,7 +232,7 @@ $desktop-width: 1200px;
     @include atSmallest {
       margin-bottom: 70px;
       width: 200px;
-      flex: 0 0 calc( 33.33333% - 24px);
+      flex: 0 0 calc(33.33333% - 24px);
       margin: 0 12px;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -241,6 +245,8 @@ $desktop-width: 1200px;
     }
 
     @include atSmall {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
       justify-content: flex-start;
     }
 
@@ -326,7 +332,7 @@ $desktop-width: 1200px;
   }
 
   &__text {
-    border: 1px solid green;
+    // border: 1px solid green;
     
     @include atSmallest {
       margin: 0 12px;
