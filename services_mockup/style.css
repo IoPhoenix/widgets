@@ -48,6 +48,13 @@ body {
 
 @media (min-width: 960px) {
   .services__content {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+@media (min-width: 960px) {
+  .services__content {
     padding-right: 36px;
     padding-left: 36px;
   }
@@ -160,15 +167,24 @@ body {
   }
 }
 
+@media (min-width: 648px) {
+  .block {
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
 @media (min-width: 960px) {
   .block {
-    -webkit-flex: 0 0 -webkit-calc( 25% - 12px);
+    -webkit-flex: 0 0 -webkit-calc(25% - 12px);
     -moz-box-flex: 0;
     -ms-flex: 0 0 calc(25% - 12px);
     flex: 0 0 calc(25% - 12px);
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+    margin: 0 6px;
   }
 }
 
@@ -191,6 +207,7 @@ body {
 }
 
 .block__icon {
+  border: 1px solid yellow;
   width: 140px;
   height: auto;
 }
@@ -199,7 +216,6 @@ body {
   .block__icon {
     margin-bottom: 70px;
     width: 200px;
-    height: 200px;
     flex: 0 0 calc( 33.33333% - 24px);
     margin: 0 12px;
     display: -webkit-box;
@@ -213,9 +229,25 @@ body {
   }
 }
 
+@media (min-width: 648px) {
+  .block__icon {
+    justify-content: flex-start;
+  }
+}
+
 @media (min-width: 960px) {
   .block__icon {
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin-bottom: 80px;
+    width: 144px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .block__icon {
     height: 200px;
     width: 200px;
   }
@@ -242,8 +274,12 @@ body {
 
 @media (min-width: 960px) {
   .block__bullet {
-    top: 240px;
-    left: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 224px;
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -306,6 +342,17 @@ body {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
+  }
+}
+
+@media (min-width: 960px) {
+  .block__text {
+    padding: 0 16px;
+    max-width: initial;
+    -webkit-flex: 0 0 100%;
+    -moz-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
   }
 }
 
